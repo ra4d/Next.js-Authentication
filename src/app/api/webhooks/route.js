@@ -67,7 +67,7 @@ try {
 }
   
 }
-if (evt.type === 'user.delete') {
+if (evt.type === 'user.deleted') {
   const {id } = evt?.data
   try {
     await deleteUser(id)
