@@ -8,11 +8,7 @@ const connect = async () => {
     return;
   }
   try {
-    await mongoose.connect(process.env.MONGO, {
-      dbName: "next auth app",
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGO);
     console.log(`mongoDB connect`);
     initialized = true;
   } catch (error) {
