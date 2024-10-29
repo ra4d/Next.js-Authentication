@@ -55,11 +55,11 @@ export async function POST(req) {
   console.log('Webhook body:', body)
 	
 if (evt.type === 'user.created' || evt.type === 'user.updated' ) {
-  const {id , first_name , last_name , email_addresses , username } = evt?.data
+  const {id , first_name , last_name , email_addresses , username , image_url } = evt?.data
   console.log(evt.data);
   
 try {
-  await createOrUpdate(id , first_name , last_name , email_addresses , username)
+  await createOrUpdate(id , first_name , last_name , email_addresses , username , image_url)
   return new Response("user is created or updated",{status:200})
 } catch (error) {
   console.log(`Error creating or updating user:${error}`);
