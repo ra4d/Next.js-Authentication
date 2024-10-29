@@ -10,9 +10,17 @@ const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO, {
       dbName: "next-auth-app",
-    });
-    console.log(`mongoDB connect`);
-    initialized = true;
+			useNewUrlParser: true,
+		useUnifiedTopology: true,
+    }).then(()=> {
+			console.log(`Connected.........`);
+			console.log(`mongoDB connect`);
+    	initialized = true;
+		})
+		.catch((err)=> {
+			console.log(`Not connected....${err}`);
+		})
+    
   } catch (error) {
     console.log("mongoDB connection error:", error);
   }
