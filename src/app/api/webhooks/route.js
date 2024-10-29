@@ -56,6 +56,8 @@ export async function POST(req) {
 	
 if (evt.type === 'user.created' || evt.type === 'user.updated' ) {
   const {id , first_name , last_name , email_addresses , username } = evt?.data
+  console.log(evt.data);
+  
 try {
   await createOrUpdate(id , first_name , last_name , email_addresses , username)
   return new Response("user is created or updated",{status:200})
