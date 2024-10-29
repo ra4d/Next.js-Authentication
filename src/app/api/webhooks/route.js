@@ -59,7 +59,7 @@ if (evt.type === 'user.created' || evt.type === 'user.updated' ) {
   console.log(evt.data);
   
 try {
-  await createOrUpdate(id , first_name , last_name , email_addresses , username , image_url)
+  await createOrUpdate(id , first_name , last_name , image_url , email_addresses , username )
   return new Response("user is created or updated",{status:200})
 } catch (error) {
   console.log(`Error creating or updating user:${error}`);
