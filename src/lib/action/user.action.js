@@ -12,7 +12,7 @@ export const createOrUpdate = async(
 ) => {
     try {
         await connect();
-        const user = await User.findByIdAndUpdate({
+        const user = await User.findOneAndUpdate({
             clerkId:id
         },{
             $set:{
@@ -32,7 +32,7 @@ export const createOrUpdate = async(
 
 export const deleteUser = async(id) => {
     try{
-        await User.findByIdAndDelete({clerkId:id})
+        await User.findOneAndUpdate({clerkId:id})
     }catch(error){
         console.log("Error deleting user:",error);
     }
